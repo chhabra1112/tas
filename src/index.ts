@@ -37,8 +37,8 @@ function main() {
   ];
   for (let i = 0; i < players.length; i++) {
     game.addPlayer(players[i][0], players[i][1]);
-    game.startGame();
   }
+  game.startGame();
 }
 
 main();

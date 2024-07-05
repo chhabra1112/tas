@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc -p . && node ./dist/index.js",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",

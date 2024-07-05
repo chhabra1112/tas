@@ -1,5 +1,5 @@
 import { Board } from "./Board";
-import { Dice } from "./Dice";
+import { Dice } from "./Dice/Dice";
 import { Player } from "./Player";
 import { IBoard } from "./interfaces/board";
 import { IDice } from "./interfaces/dice";
