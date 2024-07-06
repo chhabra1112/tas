@@ -1,6 +1,7 @@
 import { OmenType } from "../../constants";
+import { IOmen } from "../../interfaces/omen";
 
-export class Omen {
+export class Omen implements IOmen {
   type: OmenType = OmenType.Default;
   initialPosition: number;
   finalPosition: number;
@@ -10,7 +11,7 @@ export class Omen {
     this.initialPosition = initialPosition;
   }
 
-  getNewPosition() {
+  getNewPosition(): number {
     return this.finalPosition;
   }
 }
