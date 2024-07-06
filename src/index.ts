@@ -1,6 +1,8 @@
 import { Game } from "./Game";
 import * as fs from "fs";
 import * as path from "path";
+import config from "../config.json";
+import { MovementStrategy } from "./constants";
 
 export function testRun() {
   const game = new Game();
@@ -33,4 +35,25 @@ export function testRun() {
   game.startGame();
 }
 
-testRun();
+export function configRun() {
+  const { players, boardSize, snakes, ladders, dies, movementStrategy } =
+    config;
+  const game = new Game(boardSize, dies, snakes, ladders);
+  game.addDice(dies, movementStrategy as MovementStrategy);
+  game.addPlayers(players);
+  game.startGame();
+}
+
+function main() {
+  const args = process.argv;
+  const run = args[args.length - 1];
+  switch (run) {
+    case "config":
+      return configRun();
+    case "input":
+      return testRun();
+    default:
+      console.log("Please enter valid argument.");
+  }
+}
+main();

@@ -1,6 +1,7 @@
 import { Board } from "./Board/Board";
 import { Dice } from "./Dice/Dice";
 import { Player } from "./Player";
+import { MovementStrategy } from "./constants";
 import { IBoard } from "./interfaces/board";
 import { IDice } from "./interfaces/dice";
 import { IPlayer } from "./interfaces/player";
@@ -28,8 +29,8 @@ export class Game {
     return this.board;
   }
 
-  addDice(noOfDices?: number): void {
-    this.dice = new Dice(noOfDices);
+  addDice(noOfDices?: number, movementStrategy?: MovementStrategy): void {
+    this.dice = new Dice(noOfDices, movementStrategy);
   }
 
   addPlayer(name: string, startingPosition?: number): void {
@@ -65,11 +66,12 @@ export class Game {
       const currPos = currentPlayer.currPosition;
       const nextPos = currPos + move;
       let finalPos = this.handleOmen(nextPos);
+      this.logMove(currentPlayer, currPos, nextPos, finalPos);
       finalPos =
         finalPos > this.board.winningPosition
           ? this.board.winningPosition
           : finalPos;
-      this.logMove(currentPlayer, currPos, nextPos, finalPos);
+
       currentPlayer.setPosition(finalPos);
       if (finalPos >= this.board.winningPosition) {
         this.winner = currentPlayer;

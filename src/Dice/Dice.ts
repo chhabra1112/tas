@@ -1,7 +1,7 @@
-import { Constants } from "../constants";
+import { Constants, MovementStrategy } from "../constants";
 import { IDice } from "../interfaces/dice";
 import { BaseDiceRollStrategy } from "./RollStrategy/BaseStrategy";
-import { SumDiceRollStrategy } from "./RollStrategy/SumStrategy";
+import { MovementFactory } from "./RollStrategy/MovementFactory";
 
 export class Dice implements IDice {
   count: number;
@@ -9,12 +9,17 @@ export class Dice implements IDice {
   maxValuePerDice: number;
   rollStrategy: BaseDiceRollStrategy;
 
-  constructor(noOfDices?: number, minValue?: number, maxValue?: number) {
+  constructor(
+    noOfDices?: number,
+    movementStrategy?: MovementStrategy,
+    minValue?: number,
+    maxValue?: number
+  ) {
     this.count = noOfDices ?? Constants.DEFAULT_DICE_COUNT;
     this.maxValuePerDice = maxValue ?? Constants.MAXIMUM_PER_DICE_VALUE;
     this.minValuePerDice = minValue ?? Constants.MINIMUM_PER_DICE_VALUE;
     this.validate();
-    this.rollStrategy = new SumDiceRollStrategy();
+    this.rollStrategy = MovementFactory.getStrategy(movementStrategy);
   }
 
   private validate() {

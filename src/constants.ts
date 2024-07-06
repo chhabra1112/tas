@@ -5,6 +5,12 @@ export enum OmenType {
   Crocodile,
 }
 
+export enum MovementStrategy {
+  MAX = "MAX",
+  MIN = "MIN",
+  SUM = "SUM",
+}
+
 export class Constants {
   public static readonly DEFAULT_DICE_COUNT = 1;
   public static readonly MAXIMUM_PER_DICE_VALUE = 6;

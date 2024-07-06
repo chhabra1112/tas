@@ -1,0 +1,8 @@
+{
+  "players": 6,
+  "boardSize": 20,
+  "snakes": 8,
+  "ladders": 7,
+  "dies": 3,
+  "movementStrategy": "MAX"
+}
