@@ -1,5 +1,5 @@
-import { Board } from "../src/Board";
-import { Cell } from "../src/Cell";
+import { Board } from "../src/Board/Board";
+import { Cell } from "../src/Board/Cell";
 import { Ladder } from "../src/Omens/Ladder";
 import { Omen } from "../src/Omens/Omen";
 import { Snake } from "../src/Omens/Snake";

@@ -1,4 +1,4 @@
-import { Cell } from "../Cell";
+import { Cell } from "../Board/Cell";
 import { IPlayer } from "./player";
 
 export interface IBoard {

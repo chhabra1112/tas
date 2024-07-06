@@ -1,11 +1,11 @@
 import { Cell } from "./Cell";
-import { Ladder } from "./Omens/Ladder";
-import { Snake } from "./Omens/Snake";
-import { Constants } from "./constants";
-import { IBoard } from "./interfaces/board";
-import { ICell } from "./interfaces/cell";
-import { IPlayer } from "./interfaces/player";
-import { generateRandomInt } from "./utils";
+import { Ladder } from "../Omens/Ladder";
+import { Snake } from "../Omens/Snake";
+import { Constants } from "../constants";
+import { IBoard } from "../interfaces/board";
+import { ICell } from "../interfaces/cell";
+import { IPlayer } from "../interfaces/player";
+import { generateRandomInt } from "../utils";
 
 export class Board implements IBoard {
   size: number;

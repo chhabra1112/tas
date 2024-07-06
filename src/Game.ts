@@ -1,4 +1,4 @@
-import { Board } from "./Board";
+import { Board } from "./Board/Board";
 import { Dice } from "./Dice/Dice";
 import { Player } from "./Player";
 import { IBoard } from "./interfaces/board";

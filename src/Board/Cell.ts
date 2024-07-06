@@ -1,6 +1,6 @@
-import { ICell } from "./interfaces/cell";
-import { IOmen } from "./interfaces/omen";
-import { IPlayer } from "./interfaces/player";
+import { ICell } from "../interfaces/cell";
+import { IOmen } from "../interfaces/omen";
+import { IPlayer } from "../interfaces/player";
 
 export class Cell implements ICell {
   position: number;
