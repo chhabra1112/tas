@@ -46,13 +46,13 @@ export class Board implements IBoard {
         Constants.DEFAULT_PLAYER_STARTING_POSITION + 1,
         lastPossiblePosition
       );
-      if (this.cells[start].omen) {
-        continue;
-      }
       const end = generateRandomInt(
         Constants.DEFAULT_PLAYER_STARTING_POSITION,
         start - 1
       );
+      if (this.cells[start].omen || this.cells[end].omen) {
+        continue;
+      }
       this.addSnake(start, end);
       count--;
     }
@@ -65,10 +65,15 @@ export class Board implements IBoard {
         Constants.DEFAULT_PLAYER_STARTING_POSITION + 1,
         lastPossiblePosition
       );
-      if (this.cells[start].omen) {
+
+      const end = generateRandomInt(start + 1, lastPossiblePosition);
+      if (
+        this.cells[start].omen ||
+        this.cells[end].omen ||
+        Math.floor(end / this.size) == Math.floor(start / this.size)
+      ) {
         continue;
       }
-      const end = generateRandomInt(start + 1, lastPossiblePosition);
       this.addLadder(start, end);
       count--;
     }
