@@ -1,6 +1,5 @@
 import { Constants } from "../constants";
 import { IDice } from "../interfaces/dice";
-import { generateRandomInt } from "../utils";
 import { BaseDiceRollStrategy } from "./RollStrategy/BaseStrategy";
 import { SumDiceRollStrategy } from "./RollStrategy/SumStrategy";
 
@@ -12,8 +11,8 @@ export class Dice implements IDice {
 
   constructor(noOfDices?: number, minValue?: number, maxValue?: number) {
     this.count = noOfDices ?? Constants.DEFAULT_DICE_COUNT;
-    this.maxValuePerDice = minValue ?? Constants.MAXIMUM_PER_DICE_VALUE;
-    this.minValuePerDice = maxValue ?? Constants.MINIMUM_PER_DICE_VALUE;
+    this.maxValuePerDice = maxValue ?? Constants.MAXIMUM_PER_DICE_VALUE;
+    this.minValuePerDice = minValue ?? Constants.MINIMUM_PER_DICE_VALUE;
     this.validate();
     this.rollStrategy = new SumDiceRollStrategy();
   }

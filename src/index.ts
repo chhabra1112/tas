@@ -1,8 +1,8 @@
 import { Game } from "./Game";
 
-function main() {
+export function testRun() {
   const size = 10;
-  const game = new Game(10);
+  const game = new Game(size);
   const board = game.getBoard();
   const snakes = [
     [62, 5],
@@ -41,4 +41,4 @@ function main() {
   game.startGame();
 }
 
-main();
+testRun();

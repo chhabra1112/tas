@@ -11,5 +11,9 @@ describe("Player class tests", () => {
     const player = new Player("Hari", 57);
     expect(player.currPosition).toBe(57);
     expect(player.name).toBe("Hari");
+    player.setPosition(80);
+    expect(player.currPosition).toBe(80);
+    player.resetPosition();
+    expect(player.currPosition).toBe(0);
   });
 });

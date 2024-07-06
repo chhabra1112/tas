@@ -22,7 +22,7 @@ describe("Board class tests", () => {
     expect(board.cells[56]).toBeInstanceOf(Cell);
 
     expect(board.cells[56].omen).toBeInstanceOf(Omen);
-    expect(board.cells[56].omen).toMatchObject(new Ladder(56, 86));
+    expect(board.cells[56].omen).toMatchObject(new Ladder(20, 56, 86));
 
     expect(() => board.addSnake(50, 56)).toThrow(
       new Error("Snake cannot move the player forward.")
