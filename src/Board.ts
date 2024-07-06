@@ -35,6 +35,9 @@ export class Board implements IBoard {
   }
 
   addLadder(start: number, end: number) {
+    if (Math.floor(end / this.size) == Math.floor(start / this.size)) {
+      throw new Error("Ladders can't be horizontal");
+    }
     const ladder = new Ladder(start, end);
     this.cells[start].setOmen(ladder);
   }
@@ -53,8 +56,12 @@ export class Board implements IBoard {
       if (this.cells[start].omen || this.cells[end].omen) {
         continue;
       }
-      this.addSnake(start, end);
-      count--;
+      try {
+        this.addSnake(start, end);
+        count--;
+      } catch {
+        continue;
+      }
     }
   }
 
