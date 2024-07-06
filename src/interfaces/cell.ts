@@ -1,12 +1,12 @@
-import { IOmen } from "./omen";
+import { Omen } from "../game/Omens/Omen";
 import { IPlayer } from "./player";
 
 export interface ICell {
   position: number;
-  omen: IOmen | null;
+  omen: Omen | null;
   currPlayer: IPlayer | null;
 
-  setOmen(omen: IOmen): void;
+  setOmen(omen: Omen): void;
   addPlayer(player: IPlayer): void;
-  removePlayer(): void;
+  removePlayer(): boolean;
 }

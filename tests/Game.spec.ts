@@ -1,4 +1,4 @@
-import { Game } from "../src/Game";
+import { Game } from "../src/game";
 
 describe("Game class tests", () => {
   it("should run the game successfully.", () => {

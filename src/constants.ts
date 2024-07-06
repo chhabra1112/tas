@@ -3,6 +3,7 @@ export enum OmenType {
   Ladder,
   Mine,
   Crocodile,
+  Default,
 }
 
 export enum MovementStrategy {

@@ -1,4 +1,4 @@
-import { SumDiceRollStrategy } from "../../../src/Dice/RollStrategy/SumStrategy";
+import { SumDiceRollStrategy } from "../../../src/game/Dice/RollStrategy/SumStrategy";
 
 describe("SumRollStrategy class test cases", () => {
   it("should return a number", () => {

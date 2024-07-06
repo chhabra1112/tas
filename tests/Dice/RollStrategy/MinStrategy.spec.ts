@@ -1,4 +1,4 @@
-import { MinDiceRollStrategy } from "../../../src/Dice/RollStrategy/MinStrategy";
+import { MinDiceRollStrategy } from "../../../src/game/Dice/RollStrategy/MinStrategy";
 
 describe("MinRollStrategy class test cases", () => {
   it("should return a number", () => {

@@ -1,8 +1,8 @@
-import { Game } from "./Game";
+import { Game } from "./game";
 import * as fs from "fs";
 import * as path from "path";
 import config from "../config.json";
-import { MovementStrategy } from "./constants";
+import { MovementStrategy, OmenType } from "./constants";
 
 export function testRun() {
   const game = new Game();
@@ -14,14 +14,14 @@ export function testRun() {
   idx++;
   for (let i = 0; i < noOfSnakes; i++) {
     const [start, end] = inputList[idx].split(" ");
-    board.addSnake(+start.trim(), +end.trim());
+    board.addOmen(OmenType.Snake, +start.trim(), +end.trim());
     idx += 1;
   }
   const noOfLadders = +inputList[idx].trim();
   idx += 1;
   for (let i = 0; i < noOfLadders; i++) {
     const [start, end] = inputList[idx].split(" ");
-    board.addLadder(+start.trim(), +end.trim());
+    board.addOmen(OmenType.Ladder, +start.trim(), +end.trim());
     idx += 1;
   }
   const noOfPlayers = +inputList[idx].trim();

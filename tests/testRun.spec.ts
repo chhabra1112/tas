@@ -1,7 +1,11 @@
-import { testRun } from "../src";
+import { configRun, testRun } from "../src";
 
-describe("Test run from provided input", () => {
-  it("should run the game successfully.", () => {
+describe("code runs from provided input", () => {
+  it("should run the game successfully with given input.", () => {
     testRun();
+  });
+
+  it("should run the game successfully with given config.", () => {
+    configRun();
   });
 });

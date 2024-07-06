@@ -1,4 +1,4 @@
-import { Player } from "../src/Player";
+import { Player } from "../src/game/Player";
 
 describe("Player class tests", () => {
   it("should return a player with given name and starting position (0)", () => {

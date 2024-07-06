@@ -1,5 +1,5 @@
-import { Dice } from "../../src/Dice/Dice";
-import { Constants } from "../../src/constants";
+import { Dice } from "../../src/game/Dice";
+import { Constants, MovementStrategy } from "../../src/constants";
 
 describe("Dice class test cases", () => {
   it("should throw an error", () => {
@@ -9,7 +9,7 @@ describe("Dice class test cases", () => {
   });
 
   it("should throw an error", () => {
-    expect(() => new Dice(1, 6, 1)).toThrow(
+    expect(() => new Dice(1, MovementStrategy.MAX, 6, 1)).toThrow(
       new Error(
         "Maximum Possible dice value should be more or equal than minimum value."
       )
@@ -17,7 +17,7 @@ describe("Dice class test cases", () => {
   });
 
   it("should throw an error", () => {
-    expect(() => new Dice(1, -5, 0)).toThrow(
+    expect(() => new Dice(1, MovementStrategy.SUM, -5, 0)).toThrow(
       new Error(
         "Maximum Possible dice value should be more or equal than minimum value."
       )
@@ -39,7 +39,7 @@ describe("Dice class test cases", () => {
   });
 
   it("should successfully create a dice with provided values", () => {
-    const dice = new Dice(2, 2, 7);
+    const dice = new Dice(2, MovementStrategy.SUM, 2, 7);
     expect(dice.count).toBe(2);
     expect(dice.minValuePerDice).toBe(2);
     expect(dice.maxValuePerDice).toBe(7);
