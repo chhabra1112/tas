@@ -13,7 +13,7 @@ export class Game {
   private dice: IDice;
 
   constructor(
-    size: number,
+    size?: number,
     noOfDices?: number,
     snakes?: number,
     ladders?: number

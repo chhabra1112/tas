@@ -12,11 +12,11 @@ export class Board implements IBoard {
   cells: ICell[];
   winningPosition: number;
 
-  constructor(size: number) {
-    if (size < 2) {
+  constructor(size?: number) {
+    if (size && size < 2) {
       throw new Error("Size of Board should atleast be 2x2.");
     }
-    this.size = size;
+    this.size = size ?? Constants.DEFAULT_BOARD_SIZE;
     this.cells = [];
     this.winningPosition = this.size * this.size;
     this.initCells();

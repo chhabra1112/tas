@@ -1,43 +1,35 @@
 import { Game } from "./Game";
+import * as fs from "fs";
+import * as path from "path";
 
 export function testRun() {
-  const size = 10;
-  const game = new Game(size);
+  const game = new Game();
   const board = game.getBoard();
-  const snakes = [
-    [62, 5],
-    [33, 6],
-    [49, 9],
-    [88, 16],
-    [41, 20],
-    [56, 53],
-    [98, 64],
-    [93, 73],
-    [95, 75],
-  ];
-  const ladders = [
-    [2, 37],
-    [27, 46],
-    [10, 32],
-    [51, 68],
-    [61, 79],
-    [65, 84],
-    [71, 91],
-    [81, 100],
-  ];
-  for (let i = 0; i < snakes.length; i++) {
-    board.addSnake(snakes[i][0], snakes[i][1]);
+  const input = fs.readFileSync(path.join(__dirname, "../input"), "utf-8");
+  const inputList = input.split("\r\n");
+  let idx = 0;
+  const noOfSnakes = +inputList[idx].trim();
+  idx++;
+  for (let i = 0; i < noOfSnakes; i++) {
+    const [start, end] = inputList[idx].split(" ");
+    board.addSnake(+start.trim(), +end.trim());
+    idx += 1;
   }
-  for (let i = 0; i < ladders.length; i++) {
-    board.addLadder(ladders[i][0], ladders[i][1]);
+  const noOfLadders = +inputList[idx].trim();
+  idx += 1;
+  for (let i = 0; i < noOfLadders; i++) {
+    const [start, end] = inputList[idx].split(" ");
+    board.addLadder(+start.trim(), +end.trim());
+    idx += 1;
   }
-  const players: [string, number][] = [
-    ["Gaurav", 1],
-    ["Sagar", 1],
-  ];
-  for (let i = 0; i < players.length; i++) {
-    game.addPlayer(players[i][0], players[i][1]);
+  const noOfPlayers = +inputList[idx].trim();
+  idx += 1;
+  for (let i = 0; i < noOfPlayers; i++) {
+    const [name, position] = inputList[idx].split(" ");
+    game.addPlayer(name.trim(), +position.trim());
+    idx += 1;
   }
+
   game.startGame();
 }
 
